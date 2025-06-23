@@ -1,37 +1,51 @@
 * {
-  margin: 0%;
-  padding: 0%;
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
-html,
-body,
-#root {
+html, body, #root {
   height: 100%;
   width: 100%;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+.header {
+  background-color: #ae0e0e;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+  font-size: 1.5rem;
+  font-family: 'Fira Code', monospace;
+  border-bottom: 2px solid #444;
 }
 
 main {
-  height: 100%;
-  width: 100%;
-  padding: 1.5rem;
+  flex: 1;
   display: flex;
   gap: 1rem;
+  padding: 1.5rem;
+  overflow: hidden;
 }
 
-main .left,
-main .right {
-  height: 100%;
-  flex-basis: 50%;
+.left, .right {
+  flex: 1;
   border-radius: 0.7rem;
+  overflow-y: auto;
 }
 
-main .left {
+.left {
   background-color: #000000;
   position: relative;
 }
 
-.left .code,
+.code,
 .code pre,
 .code pre code {
   height: 100%;
@@ -41,7 +55,7 @@ main .left {
   background-color: #0c0c0c;
 }
 
-main .left .review {
+.review {
   position: absolute;
   bottom: 1rem;
   right: 1rem;
@@ -54,10 +68,8 @@ main .left .review {
   border-radius: 0.7rem;
 }
 
-
-main .right {
+.right {
   background-color: #343434;
   padding: 1rem 2rem;
   font-size: 1.5rem;
-  overflow: auto;
 }

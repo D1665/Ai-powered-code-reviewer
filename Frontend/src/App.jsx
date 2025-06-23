@@ -3,18 +3,17 @@ import "prismjs/themes/prism-tomorrow.css"
 import Editor from "react-simple-code-editor"
 import prism from "prismjs"
 import Markdown from "react-markdown"
-import rehypeHighlight from "rehype-highlight";
-import "highlight.js/styles/github-dark.css";
+import rehypeHighlight from "rehype-highlight"
+import "highlight.js/styles/github-dark.css"
 import axios from 'axios'
 import './App.css'
+import Navbar from './components/Navbar'
 
 function App() {
-  const [ count, setCount ] = useState(0)
-  const [ code, setCode ] = useState(` function sum() {
+  const [code, setCode] = useState(`function sum() {
   return 1 + 1
 }`)
-
-  const [ review, setReview ] = useState(``)
+  const [review, setReview] = useState(``)
 
   useEffect(() => {
     prism.highlightAll()
@@ -26,9 +25,14 @@ function App() {
   }
 
   return (
-    <>
+    <div className="app-container">
+      {/* NAVBAR */}
+      <Navbar />
+
+      {/* MAIN */}
       <main>
         <div className="left">
+          
           <div className="code">
             <Editor
               value={code}
@@ -45,22 +49,17 @@ function App() {
               }}
             />
           </div>
-          <div
-            onClick={reviewCode}
-            className="review">Review</div>
+          <div onClick={reviewCode} className="review">Review</div>
         </div>
+
         <div className="right">
-          <Markdown
-
-            rehypePlugins={[ rehypeHighlight ]}
-
-          >{review}</Markdown>
+          <Markdown rehypePlugins={[rehypeHighlight]}>
+            {review}
+          </Markdown>
         </div>
       </main>
-    </>
+    </div>
   )
 }
-
-
 
 export default App
