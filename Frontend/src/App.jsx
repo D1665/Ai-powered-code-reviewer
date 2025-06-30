@@ -8,6 +8,7 @@ import "highlight.js/styles/github-dark.css"
 import axios from 'axios'
 import './App.css'
 import Navbar from './components/Navbar'
+// This is the main application component that renders the code editor and review section
 
 function App() {
   const [code, setCode] = useState(`function sum() {
